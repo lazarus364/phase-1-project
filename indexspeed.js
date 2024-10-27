@@ -1,29 +1,32 @@
-function calculateGrade(mark) {
-    if (mark > 79) {
-      return 'A';
-    } else if (mark >= 60) {
-      return 'B';
-    } else if (mark >= 50) {
-      return 'C';
-    } else if (mark >= 40) {
-      return 'D';
+function calculateDemeritPoints(speed) {
+    const speedLimit = 70;
+    let demeritPoints = 0;
+  
+    if (speed > speedLimit) {
+      demeritPoints = Math.floor((speed - speedLimit) / 5);
+    }
+  
+    return demeritPoints;
+  }
+  
+  function main() {
+    const speedInput = prompt("Enter the speed of the car (in km/h):");
+    const speed = Number(speedInput);
+
+    if (isNaN(speed) || speed < 0) {
+        console.log("speed that is within and limit.");
+        return;
+    } 
+
+    const demeritPoints = calculateDemeritPoints(speed);
+  
+    if (demeritPoints > 0) {
+      console.log("Points:", demeritPoints);
+      if (demeritPoints > 12) {
+        console.log("License suspended");
+      }
     } else {
-      return 'E';
+      console.log("Ok");
     }
   }
-  
-  function studentGradeGenerator() {
-    const mark = parseFloat(prompt('Enter the student mark (0-100):'));
-  
-    if (isNaN(mark) || mark < 0 || mark > 100) {
-      return 'Invalid input. Please enter a valid mark between 0 and 100.';
-    }
-  
-    const grade = calculateGrade(mark);
-    return `The student's grade is: ${grade}`;
-  }
-  
-  
-  const result = studentGradeGenerator();
-  console.log(result);
   
