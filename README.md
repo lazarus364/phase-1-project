@@ -12,6 +12,8 @@ D: Marks between 40 and 49 (inclusive)
 E: Marks less than 40
 
 Allow the user to end the input process by typing "done" instead of entering a student's name. Display the student names, their marks, and the corresponding grades.
+This program allows one to input students names and marks . The input is then evaluated within the range of 0 to 100.It then automatically returns the assigned grade of the student.
+
 
 Challenge 2: Speed Detector (Toy Problem)
 
@@ -19,6 +21,8 @@ Write a program that takes the speed of a car as input e.g 80. If the speed is l
 
    > For example, if the speed is 80, it should print: “Points: 2”. If the driver gets more than 12 points, the function should print: “License suspended”.
 
+This program calcualte demerit points based on the speed of a vehicle it then evaluates input looking at the limits and then prints license invoked if the speed limit is exceed .
+speed limit was set above 70 and for one's license to be suspended if he/she gets above 12 demerit points.
    Challenge 3: Net Salary Calculator (Toy Problem)
 
 Write a program whose major task is to calculate an individual’s Net Salary by getting the inputs of basic salary and benefits. Calculate the payee (i.e. Tax), NHIF Deductions, NSSF Deductions, gross salary, and net salary. 
