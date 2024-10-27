@@ -1,3 +1,4 @@
+
 function assignGrade(mark) {
     if (mark > 79) {
       return 'A';
@@ -13,17 +14,28 @@ function assignGrade(mark) {
   }
   
   function studentGradeGenerator() {
-    const mark = Number(prompt('Enter the student mark (0-100):'));
-  
+    const students = [];
+
+    while (true) {
+        const name = prompt('Enter the student name ( or enter "done" to finish):')
+        if (name.toLocaleLowerCase() === 'done') {
+            break;
+        }
+
+    const mark = Number(prompt(`Enter the mark for ${name} (0-100):`));  
     if (isNaN(mark) || mark < 0 || mark > 100) {
       return 'Invalid input. Please enter a valid mark between 0 and 100.';
     }
   
     const grade = assignGrade(mark);
-    return `The student's grade is: ${grade}`;
+    students.push({ name, mark, grade});
   }
+  return students;
+}
   
-  
-  const result = studentGradeGenerator();
-  console.log(result);
+  const results = studentGradeGenerator();
+  console.log("student Grades;");
+  results.forEach(student => {
+    console.log(`Name: ${student.name}, Mark: ${student.mark}, Grade: ${student.grade}`);
+  });
   
