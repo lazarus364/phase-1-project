@@ -63,6 +63,7 @@ function calculateNhif(grossPay) {
     }
 }
 function calculateNssf(salary){
+    return salary * 0.06;
 }
 
     

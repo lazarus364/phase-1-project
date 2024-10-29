@@ -19,4 +19,3 @@ if (isNaN(speed) || speed < 0) {
         }
     }
 }
-calculateDemeritPoints(88)
