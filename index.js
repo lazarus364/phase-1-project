@@ -1,16 +1,28 @@
 const readline = require('readline');
-const rl =readline.createInterface({ 
-    input: process.stdin, output: process.stdout });
-rl.question('What is your salary? ', (answer) => 
-    { const salary = answer 
-        console.log(calculatePaye(salary))
 
-        console.log(calculateNssf(salary))
-        console.log(calculateNhif(grossPay))
-    rl.close(); 
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
 });
-function calculatePaye(salary) {
 
+rl.question('What is your salary? ', (answer) => {
+    const salary = parseFloat(answer); 
+    if (isNaN(salary)) { 
+        console.log('Please enter a valid number for the salary.');
+    } else {
+        const paye = calculatePaye(salary);
+        const nssf = calculateNssf(salary);
+        const nhif = calculateNhif(salary);
+
+        console.log(`PAYE: ${paye.toFixed(2)}`); 
+        console.log(`NSSF: ${nssf.toFixed(2)}`);
+        console.log(`NHIF: ${nhif.toFixed(2)}`);
+    }
+
+    rl.close();
+});
+
+function calculatePaye(salary) {
     if (salary <= 24000) {
         return salary * 0.1;
     } else if (salary <= 32333) {
@@ -20,10 +32,9 @@ function calculatePaye(salary) {
     } else if (salary <= 800000) {
         return salary * 0.325;
     } else {
-         return salary *0.35;
+        return salary * 0.35;
     }
 }
-
 
 function calculateNhif(grossPay) {
     if (grossPay <= 5999) {
@@ -59,16 +70,10 @@ function calculateNhif(grossPay) {
     } else if (grossPay <= 99999) {
         return 1600;
     } else {
-        return  1700;
+        return 1700;
     }
 }
-function calculateNssf(salary){
+
+function calculateNssf(salary) {
     return salary * 0.06;
 }
-
-    
-    
-    
-  
-
-    
