@@ -41,7 +41,7 @@ function studentGradeGenerator(students = []) {
             const grade = assignGrade(mark);
             students.push({ name, mark, grade });
 
-            // Recursively call the function to add more students
+            
             studentGradeGenerator(students);
         });
     });
