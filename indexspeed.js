@@ -9,7 +9,6 @@ function calculateDemeritPoints(speed, speedLimit = 70) {
     return speed > speedLimit ? Math.floor((speed - speedLimit) / 5) : 0;
 }
 
-
 rl.question("Enter the speed of the car (in km/h): ", (input) => {
     const speed = Number(input);
 
@@ -27,7 +26,7 @@ rl.question("Enter the speed of the car (in km/h): ", (input) => {
             }
         }
     }
-    
-    
+     
+
     rl.close();
 });
